@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <!-- 未完成 ===============================-->
+    <!-- 未完成 ==========完成=====================-->
     <script type="text/template" id="teacherModalInfoTpl">
         <table class="table table-bordered table-condensed">
             <tbody>
@@ -121,29 +121,35 @@
     </script>
 
     <script type="text/template" id="teacherInfoTpl">
-    {{each list}}
-        <tr>
-            <td>{{$index + 1}}</td>
-            <td>{{$value.tc_name}}</td>
-            <td>{{$value.tc_roster}}</td>
-            <td>{{$value.tc_birthday}}</td>
-            <td>
-                {{if $value.tc_gender == 1}}
-                女
-                {{else}}
-                男
-                {{/if}}
-            </td>
-            <td>{{$value.tc_cellphone}}</td>
-            <td data-id='{{$value.tc_id}}'>
-                <a href="" data-toggle="modal" class="btn btn-info btn-xs preview">查 看</a>
-                <a href="javascript:;" class="btn btn-info btn-xs">编 辑</a>
-                <a href="javascript:;" class="btn btn-warning btn-xs">注 销</a>
-            </td>
-        </tr>
-    {{/each}}
+        {{each list}}
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{$value.tc_name}}</td>
+                <td>{{$value.tc_roster}}</td>
+                <td>{{$value.tc_birthday}}</td>
+                <td>
+                    {{if $value.tc_gender == 1}}
+                    女
+                    {{else}}
+                    男
+                    {{/if}}
+                </td>
+                <td>{{$value.tc_cellphone}}</td>
+                <td data-id='{{$value.tc_id}}' data-status='{{$value.tc_status}}'>
+                    <a href="" data-toggle="modal" class="btn btn-info btn-xs preview">查 看</a>
+                    <a href="javascript:;" class="btn btn-info btn-xs">编 辑</a>
+                    <a href="javascript:;" class="btn btn-warning btn-xs edteacher">
+                        {{if $value.tc_status == 0}}
+                        注销
+                        {{else}}
+                        启用
+                        {{/if}}
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
     </script>
-    <!-- 未完成 ===================================-->
+    <!-- 未完成 =============完成======================-->
 
     <?php include('/view/common/script.html'); ?>
     <script type="text/javascript">
