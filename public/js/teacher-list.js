@@ -17,6 +17,8 @@ define(['jquery','template','bootstrap'],function($,template){
                     data : {tc_id : tcId},
                     dataType : 'json',
                     success : function(data){
+                        // data.result.tc_hometown = data.result.tc_hometown.replace(/[|]/g, ' ');
+                        data.result.tc_hometown = data.result.tc_hometown.replace(/\|/g, ' ');
                         var html = template('teacherModalInfoTpl',data.result);
                         $('#teacherModalInfo').html(html);
                         // 显示弹窗
