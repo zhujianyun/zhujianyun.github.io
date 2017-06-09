@@ -1,4 +1,12 @@
-define(['jquery','template','bootstrap'],function($,template){
+define(['jquery','template', 'util','bootstrap'],function($,template,util){
+   // 获取请求路径
+   util.setMenu(location.pathname);
+
+   // var pathname = location.pathname;
+   //   $('.aside .navs a').removeClass('active');
+   // $('.aside .navs a[href="'+pathname+'"]').addClass('active');
+
+
     // 加载列表数据
     $.ajax({
         type : 'get',
@@ -19,7 +27,6 @@ define(['jquery','template','bootstrap'],function($,template){
 
     // 查看讲师功能
     function previewTeacher() {
-        console.log(1);
         // 绑定查看讲师信息的单击事件
         $('#teacherInfo').find('.preview').click(function(){
             var tcId = $(this).closest('td').attr('data-id');

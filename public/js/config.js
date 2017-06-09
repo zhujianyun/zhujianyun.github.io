@@ -5,7 +5,10 @@ requirejs.config({
         bootstrap : 'bootstrap/js/bootstrap.min',
         cookie : 'jquery-cookie/jquery.cookie',
         template : 'artTemplate/template-web',
+        nprogress : 'nprogress/nprogress',
         common : '../js/common',
+        index : '../js/index',
+        util : '../js/util',
         login : '../js/login',
         tealist : '../js/teacher-list'
     },
