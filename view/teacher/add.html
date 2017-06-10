@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('/view/common/style.html'); ?>
+    <link rel="stylesheet" type="text/css" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">
 
 </head>
 <body>
@@ -23,14 +24,16 @@
                     <li class="active" id="navflag">讲师添加</li>
                 </ol>
                 <div class="teacher-add" id="teacherFormInfo">
-                    <!--  -->
-                    <!-- 未完成========添加 ID 或 类名 或 name -->
+                    <!--  坑 -->
+                    
                     
                 </div>
             </div>
         </div>
     </div>
-    
+
+
+    <!-- 未完成========添加 ID 或 类名 或 name -->
     <script type="text/template" id="teacherFormTpl">
         <form id="addTeacherForm" class="form-horizontal col-xs-offset-2">
             <div class="form-group">
@@ -39,22 +42,25 @@
                 {{/if}}
                 <label for="" class="col-xs-3 control-label">姓名</label>
                 <div class="col-xs-4">
-                    <input name="tc_name" value="{{tc_name}}" type="text" class="form-control input-sm" placeholder="讲师名称">
+                    <input name="tc_name" data-description='tcName' data-describedby="tcNameId" data-required="true" value="{{tc_name}}" type="text" class="form-control input-sm" placeholder="讲师名称">
                 </div>
+                <div class="col-xs-2" id="tcNameId"></div>
             </div>
             {{if !tc_id}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">密码</label>
                 <div class="col-xs-4">
-                    <input name="tc_pass" type="password" class="form-control input-sm">
+                    <input name="tc_pass" data-pattern='^\d{6}$' data-description='tcPass' data-describedby='tcPassId' data-required='true' type="password" class="form-control input-sm">
                 </div>
+                <div class="col-xs-2" id="tcPassId"></div>
             </div>
             {{/if}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input name="tc_join_date" value="{{tc_join_date}}" type="text" class="form-control input-sm">
+                    <input name="tc_join_date" data-provide="datepicker" data-data-format="yyyy-mm-dd" data-data-language="zh-CN" data-description='tcJoinDate' data-describedby="tcJoinDateId" data-required="true"  value="{{tc_join_date}}" type="text" class="form-control input-sm">
                 </div>
+                <div class="col-xs-2" id="tcJoinDateId"></div>
             </div>
             {{if !tc_id}}
             <div class="form-group">
@@ -71,16 +77,16 @@
                 <label for="" class="col-xs-3 control-label">性别</label>
                 <div class="col-xs-4">
                     <label class="radio-inline">
-                        <input name="tc_gender" value="1" type="radio" {{if tc_gender == 1}} checked {{/if}}> 男
+                        <input name="tc_gender" value="1" type="radio" {{if tc_gender == 1}} checked {{/if}}> 女
                     </label>
                     <label class="radio-inline">
-                        <input name="tc_gender" value="0" type="radio" {{if tc_gender == 0}} checked {{/if}}> 女
+                        <input name="tc_gender" value="0" type="radio" {{if tc_gender == 0}} checked {{/if}}> 男
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-7">
-                    <input type="button" id="addTeacherBtn" class="btn btn-success btn-sm pull-right" value="{{operateFlag}}">
+                    <input type="submit" id="addTeacherBtn" class="btn btn-success btn-sm pull-right" value="{{operateFlag}}">
                 </div>                          
             </div>
         </form>

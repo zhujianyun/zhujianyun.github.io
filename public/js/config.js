@@ -6,6 +6,10 @@ requirejs.config({
         cookie : 'jquery-cookie/jquery.cookie',
         template : 'artTemplate/template-web',
         nprogress : 'nprogress/nprogress',
+        validate : 'validate/jquery-validate.min',
+        datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker.min',
+        language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        form : 'jquery-form/jquery.form',
         common : '../js/common',
         index : '../js/index',
         util : '../js/util',
@@ -16,6 +20,12 @@ requirejs.config({
     shim : {// 兼容非标准模块
         bootstrap : {
             deps : ['jquery']
+        },
+        validate : {
+            deps : ['jquery']
+        },
+        language : {
+            deps : ['jquery', 'datepicker']
         }
     }
 });
