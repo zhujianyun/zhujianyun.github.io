@@ -10,12 +10,14 @@ requirejs.config({
         datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker.min',
         language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         form : 'jquery-form/jquery.form',
+        uploadify : 'jquery-uploadify/jquery.uploadify.min',
         common : '../js/common',
         index : '../js/index',
         util : '../js/util',
         login : '../js/login',
         tealist : '../js/teacher-list',
-        teaadd : '../js/teacher-add'
+        teaadd : '../js/teacher-add',
+        settings : '../js/settings'
     },
     shim : {// 兼容非标准模块
         bootstrap : {
