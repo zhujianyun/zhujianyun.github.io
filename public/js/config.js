@@ -10,7 +10,8 @@ requirejs.config({
         index : '../js/index',
         util : '../js/util',
         login : '../js/login',
-        tealist : '../js/teacher-list'
+        tealist : '../js/teacher-list',
+        teaadd : '../js/teacher-add'
     },
     shim : {// 兼容非标准模块
         bootstrap : {
